@@ -2,12 +2,20 @@
 
 ## Setup
 
+Switch to anaconda3 as current interpreter:
+
 To get started:
 
 ### 1. **Install `cmake`**
-Since the error mentions that `cmake` is not found, you need to install it first. You can do this via `conda` or `apt`:
+
+To install it first, do this via `conda` or `apt`:
 
 ```bash
+conda create -n myenv python=3.12
+conda activate myenv
+conda install numpy pandas scikit-learn
+pip install -r requirements.txt
+# pip install --ignore-installed -r requirements.txt
 # Install cmake via conda
 conda install -c conda-forge cmake
 
@@ -40,11 +48,11 @@ pip install -r requirements.txt
 All setup steps:
 
 ```bash
-conda create -n sep_env python=3.10
+conda create -n sep_env python=3.12
 
 conda activate sep_env
 
-conda install python=3.10  # if using conda
+conda install python=3.12  # if using conda
 
 ## remove '#torch==2.2.0+cu118' from requirements.txt
 conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
@@ -76,19 +84,17 @@ setup hugging face
 
 ```bash
 
- pip install huggingface_hub==0.17.3
- pip install tokenizers==0.14.1
- pip install --upgrade transformers
-
+pip install huggingface_hub==0.24.6
+pip install tokenizers==0.14.1
+pip install --upgrade transformers
 pip install --upgrade trl 
 
-
 ```
-
-
 
 Run a sample experiment:
 
 ```bash
+
 python main.py --price_dir "data/sample_price/preprocessed/" --tweet_dir "data/sample_tweet/raw/"
+
 ```
