@@ -98,3 +98,10 @@ Run a sample experiment:
 python main.py --price_dir "data/sample_price/preprocessed/" --tweet_dir "data/sample_tweet/raw/"
 
 ```
+
+
+## How it works
+
+###  Scikit-Learn 
+
+To prevent overfitting during the model training process, we implemented Train-Test Evaluation using Scikit-Learn. In this setup, 80% of the data is allocated for training, while 20% is reserved for testing. This approach helps ensure that the model generalizes well to unseen data.
